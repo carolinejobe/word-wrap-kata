@@ -1,26 +1,27 @@
 
 public class Wrapper {
 
-	static String wrap(String input, int columnNumber){
+	static String wrap(String input, int columnNumber) {
 		char[] inputAsArray = input.toCharArray();
 		String output = "";
-		
-		//TODO wrap in for loop that will iterate over entire input and use counter of value 'columnnNumber' to find
-		//all line breaks
-		if(input.length()>columnNumber){
-			for(int i=columnNumber-1; i<=input.length(); i+=columnNumber){
-					int lineBreakIndex = input.lastIndexOf(" ", i);
-					inputAsArray[lineBreakIndex]= '\n';
-				}
+		int lineBreakIndex=0;
+
+		if (input.length() > columnNumber) {
+			for (int i = columnNumber; i<=(input.length()); i+=columnNumber) {
+				lineBreakIndex = input.lastIndexOf(" ", i); //determine the index of the last carriage prior to exceeding column count
+				inputAsArray[lineBreakIndex] = '\n'; //replace the whitespace with carriage return
+				i=lineBreakIndex; //reset i to where the carriage return was inserted
+			}
 			output = String.valueOf(inputAsArray);
 			System.out.println(output);
 			return output;
-		}
-		else{
+			
+		//if String is shorter than number of columns, no need to insert carriage returns	
+		} else {
 			output = input;
 			System.out.println(output);
 			return output;
 		}
-		
+
 	}
 }
