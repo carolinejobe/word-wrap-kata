@@ -7,8 +7,8 @@
 public class wrapperApp {
 
 	public static void main(String[] args) {
-		String input = "This is my test, we'll see how it goes";
-		int columnNumber = 25;
+		String input = "The best way to test this is";
+		int columnNumber = 4;
 		Wrapper.wrap(input, columnNumber);
 	}
 

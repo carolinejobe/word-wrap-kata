@@ -8,8 +8,10 @@ public class Wrapper {
 		//TODO wrap in for loop that will iterate over entire input and use counter of value 'columnnNumber' to find
 		//all line breaks
 		if(input.length()>columnNumber){
-			int lineBreakIndex = input.lastIndexOf(" ", columnNumber-1);
-			inputAsArray[lineBreakIndex]= '\n';
+			for(int i=columnNumber-1; i<=input.length(); i+=columnNumber){
+					int lineBreakIndex = input.lastIndexOf(" ", i);
+					inputAsArray[lineBreakIndex]= '\n';
+				}
 			output = String.valueOf(inputAsArray);
 			System.out.println(output);
 			return output;
